@@ -95,6 +95,15 @@ class User < ActiveRecord::Base
     Micropost.from_users_followed_by(self)
   end
 
+  # def first_post
+  #   respond_to do |format|
+  #     format.html { redirect_to root }
+  #     format.js do
+  #       $(".first_post").html("<%= escape_javascript(render('/shared/micropost_form')) %>")
+  #     end
+  #   end
+  # end
+
 private
     # Converts email to all lower-case.
     def downcase_email

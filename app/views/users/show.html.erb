@@ -19,9 +19,11 @@
         <%= render @microposts %>
       </ol>
       <%= will_paginate @microposts %>
-      <% else %>
-      	<h3>This is a boring user</h3>
-      	<p>He or she hasn't said anything.</p>
+      <% elsif current_user?(@user) %>
+      	<%= render 'first_post' %>
+	  <% else %>
+	  <h3>Silent User</h3>
+	  <p>This user is a bit shy right now</p>
     <% end %>
   </div>
 </div>
