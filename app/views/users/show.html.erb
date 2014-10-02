@@ -7,11 +7,12 @@
 			<%= @user.name %>
 		</h1>
 	</section>
-	<% if logged_in? %>
-	<%= link_to "Say Something!", root_path, class: "btn btn-lg btn-primary" %>
-	<% end %>
+  <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="col-md-8">
+  	<%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
@@ -19,8 +20,8 @@
       </ol>
       <%= will_paginate @microposts %>
       <% else %>
-      	<h3>Nothing to Say?</h3>
-      	<p>You have no posts, say hello to the world!</p>
+      	<h3>This is a boring user</h3>
+      	<p>He or she hasn't said anything.</p>
     <% end %>
   </div>
 </div>
